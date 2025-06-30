@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>كرة القدم - الصفحة الرئيسية</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f2f2f2;
+            direction: rtl;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #004080;
+        }
+
+        #welcome {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        .players {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .players div {
+            text-align: center;
+        }
+
+        .players img {
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #aaa;
+            text-align: center;
+        }
+
+        th {
+            background-color: #004080;
+            color: white;
+        }
+
+        .logout-btn {
+            background-color: #c0392b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .logout-btn:hover {
+            background-color: #e74c3c;
+        }
+
+        a {
+            text-decoration: none;
+            color: #004080;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>كرة القدم</h1>
+    <div id="welcome"></div>
+    <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+
+    <div class="section">
+        <h2>أفضل لاعبي كرة القدم في التاريخ</h2>
+        <div class="players">
+            <div>
+                <a href="players/messi.html">
+                   <img src="messi.jpg" alt="Lionel Messi" width="300">
+
+                    <p>ليونيل ميسي</p>
+                </a>
+            </div>
+            <div>
+                <a href="players/ronaldo.html">
+                    <img src="players/ronaldo.jpg" alt="Cristiano Ronaldo" width="150">
+                    <p>كريستيانو رونالدو</p>
+                </a>
+            </div>
+            <div>
+                <a href="players/ziidane.html">
+                    <img src="players/ziidane.jpg" alt="Zinedine Zidane" width="150">
+                    <p>زين الدين زيدان</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>الفائزون بالكرة الذهبية (آخر 10 سنوات)</h2>
+        <table>
+            <tr>
+                <th>السنة</th>
+                <th>الفائز</th>
+                <th>الدولة</th>
+            </tr>
+            <tr><td>2024</td><td>ليونيل ميسي</td><td>الأرجنتين</td></tr>
+            <tr><td>2023</td><td>ليونيل ميسي</td><td>الأرجنتين</td></tr>
+            <tr><td>2022</td><td>كريم بنزيما</td><td>فرنسا</td></tr>
+            <tr><td>2021</td><td>ليونيل ميسي</td><td>الأرجنتين</td></tr>
+            <tr><td>2020</td><td>لم تُمنح بسبب كورونا</td><td>—</td></tr>
+            <tr><td>2019</td><td>ليونيل ميسي</td><td>الأرجنتين</td></tr>
+            <tr><td>2018</td><td>لوكا مودريتش</td><td>كرواتيا</td></tr>
+            <tr><td>2017</td><td>كريستيانو رونالدو</td><td>البرتغال</td></tr>
+            <tr><td>2016</td><td>كريستيانو رونالدو</td><td>البرتغال</td></tr>
+            <tr><td>2015</td><td>ليونيل ميسي</td><td>الأرجنتين</td></tr>
+        </table>
+    </div>
+
+    <script>
+        var user = localStorage.getItem("loggedInUser");
+        if (user) {
+            document.getElementById("welcome").innerText = "مرحبًا، " + user + "!";
+        } else {
+            window.location.href = "login.html";
+        }
+
+        function logout() {
+            localStorage.removeItem("loggedInUser");
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+</head>
+<body>
+    <h2>register</h2>
+    <form onsubmit="return registerUser()">
+        <label for="newUsername">username:</label><br>
+        <input type="text" id="newUsername" required><br><br>
+
+        <label for="newPassword">password:</label><br>
+        <input type="password" id="newPassword" required><br><br>
+
+        <input type="submit" value="register">
+    </form>
+
+    <script>
+        function registerUser() {
+            var newUsername = document.getElementById("newUsername").value;
+            var newPassword = document.getElementById("newPassword").value;
+
+            // حفظ اسم المستخدم وكلمة المرور في التخزين المحلي (محلي فقط للمستخدم)
+            localStorage.setItem("savedUsername", newUsername);
+            localStorage.setItem("savedPassword", newPassword);
+
+            // تحويل إلى صفحة تسجيل الدخول
+            alert("تم إنشاء الحساب بنجاح! سيتم تحويلك إلى صفحة تسجيل الدخول.");
+            window.location.href = "login.html";
+            return false;
+        }
+    </script>
+</body>
+</html>
